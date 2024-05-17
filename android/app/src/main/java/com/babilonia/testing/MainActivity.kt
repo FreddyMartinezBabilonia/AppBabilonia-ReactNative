@@ -1,4 +1,4 @@
-package com.babiloniatest
+package com.babilonia.testing
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

@@ -1,18 +1,41 @@
 import React, { useState } from 'react'
+import { Linking } from 'react-native';
 import WebView from 'react-native-webview'
 
 export const Home = () => {
-  const [uri, setUri] = useState("https://www-testing.babilonia.pe/");
+  const domain = "www-testing.babilonia.pe";
+  const [uri, setUri] = useState(`https://${domain}/`);
   return (
-    <WebView 
-        source={{ uri }} 
-        cacheEnabled={true}
-        onOpenWindow={(syntheticEvent) => {
-          const { nativeEvent } = syntheticEvent;
-          const { targetUrl } = nativeEvent
+    <WebView
+      
+      source={{uri}}
+      cacheEnabled={true}
+      
+      onOpenWindow={syntheticEvent => {
+        const {nativeEvent} = syntheticEvent;
+        const {targetUrl} = nativeEvent;
+        /*
+        console.log({
+          domain: targetUrl,
+          isTrue:targetUrl.includes(domain) && !targetUrl.includes("wa.me")
+        });
+        */
+        if (targetUrl.includes(domain) && !targetUrl.includes("wa.me")){
           setUri(targetUrl);
-          //console.log('Intercepted OpenWindow for', targetUrl)
-        }}
-        style={{ flex: 1 }} />
-  )
+        }else{
+          Linking.openURL(targetUrl);
+        }
+
+      }}
+      
+      style={{flex: 1}}
+    />
+  );
 }
+/*
+onNavigationStateChange={event => {
+        console.log(event);
+        if (event.url.includes(domain)) return false;
+        Linking.openURL(event.url);
+      }}
+*/

@@ -1,4 +1,4 @@
-package com.babilonia.testing
+package com.babilonia
 
 import android.app.Application
 import com.facebook.react.PackageList

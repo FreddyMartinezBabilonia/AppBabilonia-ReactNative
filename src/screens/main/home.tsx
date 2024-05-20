@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { BackHandler, Linking } from 'react-native';
+import { ActivityIndicator, BackHandler, Linking, StyleSheet, View } from 'react-native';
 import WebView from 'react-native-webview';
 import SplashScreen from 'react-native-splash-screen';
 
@@ -8,6 +8,7 @@ export const Home = () => {
   const [uri, setUri] = useState(`https://${domain}/`);
   const webViewRef = useRef<any>(null);
   const [canGoBack, setCanGoBack] = useState(false);
+  const [loader, setLoader] = useState(false);
   
   const handleWebViewLoad = () => {
     // Ocultar el splash screen cuando el WebView haya cargado
@@ -32,22 +33,69 @@ export const Home = () => {
     };
   }, [canGoBack]);
 
+  useEffect(() => {
+    console.log(webViewRef);
+  }, [webViewRef])
+  
+  const runFirst = `   
+      // cambiar todos los targets _blank por _self   
+      document.querySelectorAll("a").forEach((item)=>{
+        item.setAttribute("target","_self");
+      });
+    `;
+
   return (
-    <WebView
-      ref={webViewRef}
-      source={{uri}}
-      cacheEnabled={false}
-      onLoad={handleWebViewLoad}
-      onOpenWindow={syntheticEvent => {
+    <>
+      {
+        loader &&
+        (
+          <View style={styles.loader}>
+              <ActivityIndicator color={"#fff"} size={50} />
+          </View>
+        )
+      }
+      <WebView
+        containerStyle={{ 
+          display: loader ? 'none' : 'flex'
+        }}
+        cacheEnabled={true}
+        injectedJavaScript={runFirst}
+        onLoad={handleWebViewLoad}
+        onNavigationStateChange={(navState) => setCanGoBack(navState.canGoBack)}
+        ref={webViewRef}
+        setSupportMultipleWindows={true}
+        source={{uri}}
+        style={{flex: 1}}
+        onLoadStart={(syntheticEvent) => {
+          const { nativeEvent } = syntheticEvent;
+          setLoader(nativeEvent.loading);
+        }}
+        onLoadEnd={(syntheticEvent) => { 
+          const { nativeEvent } = syntheticEvent;
+          setLoader(nativeEvent.loading);
+
+        }}
+      />      
+    </>
+  );
+}
+
+const styles = StyleSheet.create({
+    loader: {
+      backgroundColor: "#083766",
+      flex:1,
+      alignItems:"center",
+      justifyContent:"center"
+    }
+});
+/*
+
+onOpenWindow={syntheticEvent => {
         const {nativeEvent} = syntheticEvent;
         const {targetUrl} = nativeEvent;
-        /*
-        console.log({
-          domain: targetUrl,
-          isTrue:targetUrl.includes(domain) && !targetUrl.includes("wa.me")
-        });
-        */
-       console.log(targetUrl);
+       
+        console.log(targetUrl);
+        
         if (targetUrl.includes(domain) && !targetUrl.includes("wa.me")){
           console.log('open url');
           setUri(targetUrl);
@@ -55,14 +103,8 @@ export const Home = () => {
           Linking.openURL(targetUrl);
         }
 
-      }}
-      
-      style={{flex: 1}}
-      onNavigationStateChange={(navState) => setCanGoBack(navState.canGoBack)}
-    />
-  );
-}
-/*
+      }}  
+
 onNavigationStateChange={event => {
         console.log(event);
         if (event.url.includes(domain)) return false;

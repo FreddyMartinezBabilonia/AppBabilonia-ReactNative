@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { ActivityIndicator, BackHandler, Linking, StyleSheet, View } from 'react-native';
 import WebView from 'react-native-webview';
 import SplashScreen from 'react-native-splash-screen';
+import { api } from '../../api/api';
 
 export const Home = () => {
   const domain = "www-testing.babilonia.pe";
@@ -10,7 +11,10 @@ export const Home = () => {
   const [canGoBack, setCanGoBack] = useState(false);
   const [loader, setLoader] = useState(false);
   
-  const handleWebViewLoad = () => {
+  const handleWebViewLoad = async () => {
+
+    const response = await api.get("/public/app_config");     
+
     // Ocultar el splash screen cuando el WebView haya cargado
     SplashScreen.hide();
   };

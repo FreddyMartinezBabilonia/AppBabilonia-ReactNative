@@ -1,7 +1,8 @@
 import axios from 'axios';
-import Config from 'react-native-config';
+import { getEnviroment } from '../helpers';
 
-const baseUrl = Config.API_SERVICE;
+const baseUrl = getEnviroment("API_SERVICE");
+
 export const api = axios.create({
     baseURL : baseUrl,
     headers: {

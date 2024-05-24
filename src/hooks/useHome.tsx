@@ -5,6 +5,7 @@ import { ModalNativeProps } from '../interfaces';
 import { api } from '../api';
 import SplashScreen from 'react-native-splash-screen';
 import { AppState, BackHandler } from 'react-native';
+import DeviceInfo from 'react-native-device-info';
 
 export const useHome = () => {
 
@@ -33,11 +34,10 @@ export const useHome = () => {
       useEffect(() => {
         const subscription = AppState.addEventListener('change', nextAppState => {
           if(appState.match(/inactive|background/) && nextAppState === 'active') {
-            launchAndroidAlert();
+            if(update == false) launchAndroidAlert();
           }
           setAppState(nextAppState);
         });
-    
         return () => {
           subscription.remove();
         };
@@ -45,20 +45,29 @@ export const useHome = () => {
 
     const launchAndroidAlert = () => {
         const props:ModalNativeProps = {
-            title: 'Actualizar', 
-            message: 'Hay una nueva versión disponible en la app. Desea actualizar?', 
+            title: 'Notificación', 
+            message: 'Tenemos una actualización disponible', 
             buttons: [
-              {text: 'OK', onPress: () => openPlayStore()},
+              {text: 'Cancelar', onPress: () => { 
+                setUpdate(true);
+                SplashScreen.hide();
+              }},
+              {text: 'Descargar', onPress: () => openPlayStore()},
             ]
           }
           ModalNative(props);
     }
 
     const handleWebViewLoad = async () => {
-        const response = await api.get("/public/app_config");  
+        const response = await api.get("/public/app_config", {
+          params : {
+            platform : "android",
+            version : DeviceInfo.getBuildNumber()
+          }
+        });  
         const data = response.data?.data ?? {};
         const newVersion = data.new_version.android ?? false;    
-        if(newVersion){
+        if(newVersion && update == false){
             launchAndroidAlert();
             setUpdate(true);
             return;
@@ -66,7 +75,6 @@ export const useHome = () => {
         SplashScreen.hide();
     };
     
-      // Manejar el evento de retroceso
     const handleBackPress = () => {
     if (canGoBack) {
         webViewRef!.current!.goBack();

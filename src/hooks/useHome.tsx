@@ -2,10 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { ModalNative } from '../components';
 import { getEnviroment, getNewVersion, openPlayStore } from '../helpers';
 import { ModalNativeProps } from '../interfaces';
-import { api } from '../api';
 import SplashScreen from 'react-native-splash-screen';
 import { AppState, BackHandler, Linking } from 'react-native';
-import DeviceInfo from 'react-native-device-info';
 
 export const useHome = () => {
 

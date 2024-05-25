@@ -1,4 +1,4 @@
-package com.babilonia
+package pe.babilonia
 
 import android.app.Application
 import com.facebook.react.PackageList

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { ModalNative } from '../components';
-import { getEnviroment, openPlayStore } from '../helpers';
+import { getEnviroment, getNewVersion, openPlayStore } from '../helpers';
 import { ModalNativeProps } from '../interfaces';
 import { api } from '../api';
 import SplashScreen from 'react-native-splash-screen';
@@ -29,6 +29,7 @@ export const useHome = () => {
         setUri(url);
     }
 
+    /*cuando se carga por primera vez*/
     useEffect(() => {
       Linking.getInitialURL().then((e) => {
         _handleOpenURL(e);
@@ -38,6 +39,7 @@ export const useHome = () => {
       Linking.addEventListener('url', ({ url }) =>{ _handleOpenURL(url) });
     }, []);
     
+    /*cuando se detecata el boton de retroceso*/
     useEffect(() => {
       BackHandler.addEventListener('hardwareBackPress', handleBackPress);
       return () => {
@@ -45,10 +47,12 @@ export const useHome = () => {
       };
     }, [canGoBack]);
     
+    /*cuando la vista es activa*/
     useEffect(() => {
-      const subscription = AppState.addEventListener('change', nextAppState => {
+      const subscription = AppState.addEventListener('change', async (nextAppState) => {
         if(appState.match(/inactive|background/) && nextAppState === 'active') {
-          if(update == false) launchAndroidAlert();
+          const newVersion = await getNewVersion();
+          if(newVersion && update == false) launchAndroidAlert();
         }
         setAppState(nextAppState);
       });
@@ -57,6 +61,7 @@ export const useHome = () => {
       };
     }, [appState]);
 
+    /* func que define modal de alerta*/
     const launchAndroidAlert = () => {
         const props:ModalNativeProps = {
             title: 'Notificación', 
@@ -72,21 +77,15 @@ export const useHome = () => {
           ModalNative(props);
     }
 
+    /* func cuando web termina de cargar*/
     const handleWebViewLoad = async () => {
-        const response = await api.get("/public/app_config", {
-          params : {
-            platform : "android",
-            version : DeviceInfo.getBuildNumber()
-          }
-        });  
-        const data = response.data?.data ?? {};
-        const newVersion = data.new_version.android ?? false;    
-        if(newVersion && update == false){
-            launchAndroidAlert();
-            setUpdate(true);
-            return;
-        }
-        SplashScreen.hide();
+      const newVersion = await getNewVersion();
+      if(newVersion && update == false){
+          launchAndroidAlert();
+          setUpdate(true);
+          return;
+      }
+      SplashScreen.hide();
     };
     
     const handleBackPress = () => {

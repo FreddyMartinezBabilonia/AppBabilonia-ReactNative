@@ -5,7 +5,7 @@ import { LoaderChangePage } from '../../components';
 
 export const Home = () => {
 
-  const {uri, runFirst, webViewRef, loader, setLoader, handleWebViewLoad, setCanGoBack } = useHome();
+  const {uri, runFirst, webViewRef, loader, onNavigationStateChange, setLoader, handleWebViewLoad } = useHome();
   
   return (
     <>
@@ -15,7 +15,7 @@ export const Home = () => {
         cacheEnabled={true}
         injectedJavaScript={runFirst}
         onLoad={handleWebViewLoad}
-        onNavigationStateChange={(navState) => setCanGoBack(navState.canGoBack)}
+        onNavigationStateChange={onNavigationStateChange}
         ref={webViewRef}
         setSupportMultipleWindows={true}
         source={{uri}}
@@ -29,6 +29,14 @@ export const Home = () => {
           setLoader(nativeEvent.loading);
 
         }}
+
+        javaScriptEnabled={true}
+        domStorageEnabled={true}
+        mediaPlaybackRequiresUserAction={false}
+        allowsInlineMediaPlayback={true}
+        originWhitelist={['*']}
+        mixedContentMode="always"
+        
       />      
     </>
   );

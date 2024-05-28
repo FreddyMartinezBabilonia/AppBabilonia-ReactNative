@@ -4,6 +4,8 @@ import { getEnviroment, getNewVersion, openPlayStore } from '../helpers';
 import { ModalNativeProps } from '../interfaces';
 import SplashScreen from 'react-native-splash-screen';
 import { AppState, BackHandler, Linking } from 'react-native';
+import { usePermissions } from './usePermissions';
+import { WebViewNavigation } from 'react-native-webview';
 
 export const useHome = () => {
 
@@ -21,6 +23,7 @@ export const useHome = () => {
     const [canGoBack, setCanGoBack] = useState(false);
     const [loader, setLoader] = useState(false);
     const [appState, setAppState] = useState(AppState.currentState);
+    const { requeststoragePermission, requestCameraPermission, requestLocationPermission } = usePermissions();
 
     const _handleOpenURL = (url:any) => {
         if(!url) return;
@@ -77,6 +80,9 @@ export const useHome = () => {
 
     /* func cuando web termina de cargar*/
     const handleWebViewLoad = async () => {
+      await requeststoragePermission();
+      await requestCameraPermission();
+      await requestLocationPermission();
       const newVersion = await getNewVersion();
       if(newVersion && update == false){
           launchAndroidAlert();
@@ -94,6 +100,10 @@ export const useHome = () => {
     return false; // Permite que el comportamiento por defecto ocurra (salir de la app)
     };
 
+    const onNavigationStateChange = async (event: WebViewNavigation) => {   
+      setCanGoBack(event.canGoBack)
+    }
+
     return {
         runFirst,
         webViewRef,
@@ -103,6 +113,7 @@ export const useHome = () => {
         loader,
 
         setLoader,
+        onNavigationStateChange,
         launchAndroidAlert,
         handleWebViewLoad,
         handleBackPress,

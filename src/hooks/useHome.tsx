@@ -3,14 +3,17 @@ import { ModalNative } from '../components';
 import { getEnviroment, getNewVersion, openPlayStore } from '../helpers';
 import { ModalNativeProps } from '../interfaces';
 import SplashScreen from 'react-native-splash-screen';
-import { AppState, BackHandler, Linking } from 'react-native';
+import { AppState, BackHandler, Linking, Platform } from 'react-native';
 import { usePermissions } from './usePermissions';
 import { WebViewNavigation } from 'react-native-webview';
 
 export const useHome = () => {
 
+    const platform  = Platform.OS == 'ios' ? 'ios' : 'android';
+
     const runFirst = `   
-        // cambiar todos los targets _blank por _self   
+        // cambiar todos los targets _blank por _self
+        window.sourceAndroidIos='${platform}';
         document.querySelectorAll("a").forEach((item)=>{
         item.setAttribute("target","_self");
         });

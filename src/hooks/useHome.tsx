@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { ModalNative } from '../components';
 import { getEnviroment, getNewVersion, openPlayStore } from '../helpers';
-import { ModalNativeProps } from '../interfaces';
+import { MessageResponse, ModalNativeProps } from '../interfaces';
 import SplashScreen from 'react-native-splash-screen';
 import { AppState, BackHandler, Linking, Platform } from 'react-native';
-import { usePermissions } from './usePermissions';
 import { WebViewNavigation } from 'react-native-webview';
+import { usePermissions, useDownload } from './index';
+import { useLoaderStore } from '../store';
+
 
 export const useHome = () => {
 
@@ -15,8 +17,9 @@ export const useHome = () => {
         // cambiar todos los targets _blank por _self
         window.sourceAndroidIos='${platform}';
         document.querySelectorAll("a").forEach((item)=>{
-        item.setAttribute("target","_self");
+          item.setAttribute("target","_self");
         });
+        true;
     `;
     const domain = getEnviroment("API_BASE_WEB");
     
@@ -24,9 +27,13 @@ export const useHome = () => {
     const [uri, setUri] = useState(`https://${domain}/`)
     const [update, setUpdate] = useState(false);
     const [canGoBack, setCanGoBack] = useState(false);
-    const [loader, setLoader] = useState(false);
+    
+    const loader = useLoaderStore(state => state.loader);
+    const setLoader = useLoaderStore(state => state.setLoader);
+
     const [appState, setAppState] = useState(AppState.currentState);
     const { requeststoragePermission, requestCameraPermission, requestLocationPermission } = usePermissions();
+    const { listings, interestedHome, interestedDetailListings, interestedDetailProject, collections } = useDownload()
 
     const _handleOpenURL = (url:any) => {
         if(!url) return;
@@ -103,9 +110,28 @@ export const useHome = () => {
     return false; // Permite que el comportamiento por defecto ocurra (salir de la app)
     };
 
-    const onNavigationStateChange = async (event: WebViewNavigation) => {   
+    const onNavigationStateChange = async (event: WebViewNavigation) => {
       setCanGoBack(event.canGoBack)
     }
+
+    const onMessage = (event: any) => {
+      const data:MessageResponse = JSON.parse(event.nativeEvent.data);
+      const type = data.type ?? '';
+      const bearer = data.bearer ?? '';
+      const url = data.url ?? '';    
+      
+      if(type == 'listings') {
+        listings({url, bearer});
+      }else if(type == 'interested.home'){
+        interestedHome({url, bearer});
+      }else if(type == 'interested.detail.listings'){
+        interestedDetailListings({url, bearer});
+      }else if(type == 'interested.detail.project'){
+        interestedDetailProject({url, bearer});
+      }else if(type == 'collections'){
+        collections({url, bearer});
+      }
+  }
 
     return {
         runFirst,
@@ -122,6 +148,6 @@ export const useHome = () => {
         handleBackPress,
         setCanGoBack,
         setUpdate,
-        
+        onMessage,
     }
 }

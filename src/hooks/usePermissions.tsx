@@ -1,4 +1,8 @@
 import { PermissionsAndroid, Platform } from 'react-native';
+import { ModalNative } from '../components';
+import { ModalNativeProps } from '../interfaces';
+import { openSettings } from 'react-native-permissions';
+import DeviceInfo from 'react-native-device-info';
 
 export const usePermissions = () => {
     const requeststoragePermission = async () => {
@@ -15,7 +19,25 @@ export const usePermissions = () => {
                         buttonPositive: 'Aceptar',
                     }
                 );
-                return (granted === PermissionsAndroid.RESULTS.GRANTED) ? true: false;
+                
+                if(granted === PermissionsAndroid.RESULTS.GRANTED){
+                    return true;
+                }else if(granted === PermissionsAndroid.RESULTS.DENIED){
+                    return false;
+                }else if(granted === PermissionsAndroid.RESULTS.NEVER_ASK_AGAIN){
+
+                    const response = await DeviceInfo.getSystemVersion();
+                    if(parseInt(response) >=  10) return;
+
+                    const props:ModalNativeProps = {
+                        title: 'Notificación', 
+                        message: 'Debe activar los permisos de almacenamiento para continuar', 
+                        buttons: [
+                          {text: 'Activar', onPress: () => openSettings()},
+                        ]
+                    }
+                    ModalNative(props);                    
+                }                
             }
         } catch (err) {
             console.warn(err);

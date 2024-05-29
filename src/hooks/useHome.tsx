@@ -140,7 +140,9 @@ export const useHome = () => {
       const data:MessageResponse = JSON.parse(event.nativeEvent.data);
       const type = data.type ?? '';
       const bearer = data.bearer ?? '';
-      const url = data.url ?? '';  
+      const url = data.url ?? '';
+      
+      await requeststoragePermission();  
 
       if(type == 'listings') {
         listings({url, bearer});

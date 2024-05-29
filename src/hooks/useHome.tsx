@@ -141,20 +141,7 @@ export const useHome = () => {
       const type = data.type ?? '';
       const bearer = data.bearer ?? '';
       const url = data.url ?? '';  
-      
-        const responseStoragePermission = await requeststoragePermission();        
-        if(responseStoragePermission == false){
-          const props:ModalNativeProps = {
-            title: 'Notificación', 
-            message: 'Debe activar los permisos de almacenamiento para continuar', 
-            buttons: [
-              {text: 'Activar', onPress: () => openSettings()},
-            ]
-          }
-          ModalNative(props);
-          return;
-        }              
-      
+
       if(type == 'listings') {
         listings({url, bearer});
       }else if(type == 'interested.home'){

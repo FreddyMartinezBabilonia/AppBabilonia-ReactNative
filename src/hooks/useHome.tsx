@@ -7,6 +7,7 @@ import { AppState, BackHandler, Linking, Platform } from 'react-native';
 import { WebViewNavigation } from 'react-native-webview';
 import { usePermissions, useDownload } from './index';
 import { useLoaderStore } from '../store';
+import { openSettings } from 'react-native-permissions';
 
 
 export const useHome = () => {
@@ -111,14 +112,48 @@ export const useHome = () => {
     };
 
     const onNavigationStateChange = async (event: WebViewNavigation) => {
-      setCanGoBack(event.canGoBack)
+      
+      if(event.url.includes('/ar')){
+        const responseCameraPermission = await requestCameraPermission();
+        const responseLocationPermission = await requestLocationPermission();
+        
+        if(responseCameraPermission == false || responseLocationPermission == false){          
+          const props:ModalNativeProps = {
+            title: 'Notificación', 
+            message: 'Debe activar los permisos de cámara, ubicación y storage para continuar', 
+            buttons: [
+              {text: 'Activar', onPress: () => openSettings()},
+            ]
+          }
+          ModalNative(props);          
+          webViewRef.current.injectJavaScript(`
+            window.history.back();
+            window.location.reload();
+          `);          
+        }                  
+      }else{
+        setCanGoBack(event.canGoBack)
+      }
     }
 
-    const onMessage = (event: any) => {
+    const onMessage = async (event: any) => {
       const data:MessageResponse = JSON.parse(event.nativeEvent.data);
       const type = data.type ?? '';
       const bearer = data.bearer ?? '';
-      const url = data.url ?? '';    
+      const url = data.url ?? '';  
+      
+        const responseStoragePermission = await requeststoragePermission();        
+        if(responseStoragePermission == false){
+          const props:ModalNativeProps = {
+            title: 'Notificación', 
+            message: 'Debe activar los permisos de almacenamiento para continuar', 
+            buttons: [
+              {text: 'Activar', onPress: () => openSettings()},
+            ]
+          }
+          ModalNative(props);
+          return;
+        }              
       
       if(type == 'listings') {
         listings({url, bearer});
@@ -132,7 +167,6 @@ export const useHome = () => {
         collections({url, bearer});
       }
   }
-
     return {
         runFirst,
         webViewRef,

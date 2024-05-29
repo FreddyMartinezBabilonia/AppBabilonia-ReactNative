@@ -30,8 +30,8 @@ export const usePermissions = () => {
                 const granted = await PermissionsAndroid.request(
                     PermissionsAndroid.PERMISSIONS.CAMERA,
                     {
-                        title: 'Permiso de ubicación requerido',
-                        message: 'Esta aplicación necesita acceder a tu ubicación',
+                        title: 'Permiso de camara requerido',
+                        message: 'Esta aplicación necesita acceder a tu camara',
                         buttonNeutral: 'Preguntar luego',
                         buttonNegative: 'Cancelar',
                         buttonPositive: 'Aceptar',

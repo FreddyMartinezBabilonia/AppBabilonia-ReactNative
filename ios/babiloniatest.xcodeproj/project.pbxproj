@@ -15,6 +15,37 @@
 		6132EF182BDFF13200BBE14D /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 6132EF172BDFF13200BBE14D /* PrivacyInfo.xcprivacy */; };
 		7699B88040F8A987B510C191 /* libPods-babiloniatest-babiloniatestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-babiloniatest-babiloniatestTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		A52A4D9055464AA6BF5D1BA4 /* AvenirLTStd-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6834AC68A79A44FE8540DD35 /* AvenirLTStd-Black.otf */; };
+		E739968816204968BDA2A7B9 /* AvenirLTStd-BlackOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A7390BFB6FF49BC84A88CC6 /* AvenirLTStd-BlackOblique.otf */; };
+		CC8FB9E4892648F2B9F6CA57 /* AvenirLTStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4BFE9A3BF6F4E36884015F0 /* AvenirLTStd-Book.otf */; };
+		BE4363F3D56C439EB197C587 /* AvenirLTStd-BookOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = A77146E5A1794B428AB30D5D /* AvenirLTStd-BookOblique.otf */; };
+		5F2AD031A6844AA5A5C37512 /* AvenirLTStd-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2D35A08FC51948F5B8ECE320 /* AvenirLTStd-Heavy.otf */; };
+		4668CE7044774CEA98FAA440 /* AvenirLTStd-HeavyOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = E0AD273AEBD54EECBB3709C6 /* AvenirLTStd-HeavyOblique.otf */; };
+		38D6F8A380844682B4DCCD16 /* AvenirLTStd-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = B6C41B920F38408487450D6E /* AvenirLTStd-Light.otf */; };
+		D9CE52AFDA8F4058AA05C3AB /* AvenirLTStd-LightOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1116A2C1B4F6498C8F332385 /* AvenirLTStd-LightOblique.otf */; };
+		37021C88AD8743928055D21C /* AvenirLTStd-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C472EAF68A794AC2836B018E /* AvenirLTStd-Medium.otf */; };
+		7D78F0E1F6854B5A98A2A6CB /* AvenirLTStd-MediumOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 330D3D088C844126806290EB /* AvenirLTStd-MediumOblique.otf */; };
+		D7D90F47DC3A4CFAB3429D88 /* AvenirLTStd-Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 645852B375F042B7B4FD4447 /* AvenirLTStd-Oblique.otf */; };
+		DAE3160B77F142ADB7E1A7E8 /* AvenirLTStd-Roman.otf in Resources */ = {isa = PBXBuildFile; fileRef = E424B4AF59C948C496D27A1C /* AvenirLTStd-Roman.otf */; };
+		A0FA07CF630642B6AA305CD1 /* samsungsharpsans-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2BC1C2246AF949E780905678 /* samsungsharpsans-bold.otf */; };
+		1714BD4FF0B14E5BAAA45318 /* samsungsharpsans-medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7E72BC71565B415BA91A9D33 /* samsungsharpsans-medium.otf */; };
+		ED259F3541904C12B6817E27 /* samsungsharpsans.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8969EA7BAACA4B218E200CB6 /* samsungsharpsans.otf */; };
+		52A601D0643249A5B9E879EC /* babilonia-icon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8F0AC9D9C0744E3A292A747 /* babilonia-icon.ttf */; };
+		040CE77BED9B42049BDEEA43 /* fa-brands-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70CAD021D8314AC080B19000 /* fa-brands-400.ttf */; };
+		BA628537A1594D7AAE348201 /* fa-regular-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39DD3C5F36DF48B8B5234078 /* fa-regular-400.ttf */; };
+		447F4BCD906F405BBA2AEEB3 /* fa-solid-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C244494601A472F8AC1E488 /* fa-solid-900.ttf */; };
+		00490121C93E412F8A20AB22 /* fa-v4compatibility.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B04C35FACBB42278BCCA0EE /* fa-v4compatibility.ttf */; };
+		7E8D9DA12CC647799C217B78 /* samsungsharpsans-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97EC307668B9457585040DDF /* samsungsharpsans-bold.ttf */; };
+		8E7DA2AA09C54CF0A6170D86 /* samsungsharpsans-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0DD1D80A2DB7459D8B703DEA /* samsungsharpsans-medium.ttf */; };
+		E27E9ED09A0E40AE839AB29D /* samsungsharpsans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0219DC5C05F4724A7FF3C25 /* samsungsharpsans.ttf */; };
+		E68776B1A4A84753B818E8F7 /* babilonia-icon.eot in Resources */ = {isa = PBXBuildFile; fileRef = F6847BD32CA24D93A11D2476 /* babilonia-icon.eot */; };
+		3E08B74CEF5C489284C2EC40 /* babilonia-icon.svg in Resources */ = {isa = PBXBuildFile; fileRef = EE78F444A9D44F419BB4FF51 /* babilonia-icon.svg */; };
+		F3A429AA15D743B1A861A2F3 /* babilonia-icon.woff in Resources */ = {isa = PBXBuildFile; fileRef = F882E35FF2154192BB7833F1 /* babilonia-icon.woff */; };
+		FDC1508C9AB4403E8D83F4E6 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = C979EA4F23F84E43B73AB181 /* LICENSE.txt */; };
+		3AB013F3793046D78E6864C8 /* fa-brands-400.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = 7EEC23F2E83945ED9966ED7B /* fa-brands-400.woff2 */; };
+		33F9625EECC945BB99801986 /* fa-regular-400.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = AEC6471564BD4C74A8483868 /* fa-regular-400.woff2 */; };
+		26882B2731364F73BC871D59 /* fa-solid-900.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = 63F117E59777415D9FA1A81C /* fa-solid-900.woff2 */; };
+		ECCAC694627442038A0F1835 /* fa-v4compatibility.woff2 in Resources */ = {isa = PBXBuildFile; fileRef = 64A882885CC2497D97DD09E6 /* fa-v4compatibility.woff2 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +77,37 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = babiloniatest/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-babiloniatest-babiloniatestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-babiloniatest-babiloniatestTests.release.xcconfig"; path = "Target Support Files/Pods-babiloniatest-babiloniatestTests/Pods-babiloniatest-babiloniatestTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		6834AC68A79A44FE8540DD35 /* AvenirLTStd-Black.otf */ = {isa = PBXFileReference; name = "AvenirLTStd-Black.otf"; path = "../assets/fonts/avenir/AvenirLTStd-Black.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3A7390BFB6FF49BC84A88CC6 /* AvenirLTStd-BlackOblique.otf */ = {isa = PBXFileReference; name = "AvenirLTStd-BlackOblique.otf"; path = "../assets/fonts/avenir/AvenirLTStd-BlackOblique.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D4BFE9A3BF6F4E36884015F0 /* AvenirLTStd-Book.otf */ = {isa = PBXFileReference; name = "AvenirLTStd-Book.otf"; path = "../assets/fonts/avenir/AvenirLTStd-Book.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A77146E5A1794B428AB30D5D /* AvenirLTStd-BookOblique.otf */ = {isa = PBXFileReference; name = "AvenirLTStd-BookOblique.otf"; path = "../assets/fonts/avenir/AvenirLTStd-BookOblique.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2D35A08FC51948F5B8ECE320 /* AvenirLTStd-Heavy.otf */ = {isa = PBXFileReference; name = "AvenirLTStd-Heavy.otf"; path = "../assets/fonts/avenir/AvenirLTStd-Heavy.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E0AD273AEBD54EECBB3709C6 /* AvenirLTStd-HeavyOblique.otf */ = {isa = PBXFileReference; name = "AvenirLTStd-HeavyOblique.otf"; path = "../assets/fonts/avenir/AvenirLTStd-HeavyOblique.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B6C41B920F38408487450D6E /* AvenirLTStd-Light.otf */ = {isa = PBXFileReference; name = "AvenirLTStd-Light.otf"; path = "../assets/fonts/avenir/AvenirLTStd-Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1116A2C1B4F6498C8F332385 /* AvenirLTStd-LightOblique.otf */ = {isa = PBXFileReference; name = "AvenirLTStd-LightOblique.otf"; path = "../assets/fonts/avenir/AvenirLTStd-LightOblique.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C472EAF68A794AC2836B018E /* AvenirLTStd-Medium.otf */ = {isa = PBXFileReference; name = "AvenirLTStd-Medium.otf"; path = "../assets/fonts/avenir/AvenirLTStd-Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		330D3D088C844126806290EB /* AvenirLTStd-MediumOblique.otf */ = {isa = PBXFileReference; name = "AvenirLTStd-MediumOblique.otf"; path = "../assets/fonts/avenir/AvenirLTStd-MediumOblique.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		645852B375F042B7B4FD4447 /* AvenirLTStd-Oblique.otf */ = {isa = PBXFileReference; name = "AvenirLTStd-Oblique.otf"; path = "../assets/fonts/avenir/AvenirLTStd-Oblique.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E424B4AF59C948C496D27A1C /* AvenirLTStd-Roman.otf */ = {isa = PBXFileReference; name = "AvenirLTStd-Roman.otf"; path = "../assets/fonts/avenir/AvenirLTStd-Roman.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2BC1C2246AF949E780905678 /* samsungsharpsans-bold.otf */ = {isa = PBXFileReference; name = "samsungsharpsans-bold.otf"; path = "../assets/fonts/samsungsharpsans/samsungsharpsans-bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7E72BC71565B415BA91A9D33 /* samsungsharpsans-medium.otf */ = {isa = PBXFileReference; name = "samsungsharpsans-medium.otf"; path = "../assets/fonts/samsungsharpsans/samsungsharpsans-medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8969EA7BAACA4B218E200CB6 /* samsungsharpsans.otf */ = {isa = PBXFileReference; name = "samsungsharpsans.otf"; path = "../assets/fonts/samsungsharpsans/samsungsharpsans.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D8F0AC9D9C0744E3A292A747 /* babilonia-icon.ttf */ = {isa = PBXFileReference; name = "babilonia-icon.ttf"; path = "../assets/fonts/babilonia/babilonia-icon.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		70CAD021D8314AC080B19000 /* fa-brands-400.ttf */ = {isa = PBXFileReference; name = "fa-brands-400.ttf"; path = "../assets/fonts/fontawesome/fa-brands-400.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		39DD3C5F36DF48B8B5234078 /* fa-regular-400.ttf */ = {isa = PBXFileReference; name = "fa-regular-400.ttf"; path = "../assets/fonts/fontawesome/fa-regular-400.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4C244494601A472F8AC1E488 /* fa-solid-900.ttf */ = {isa = PBXFileReference; name = "fa-solid-900.ttf"; path = "../assets/fonts/fontawesome/fa-solid-900.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8B04C35FACBB42278BCCA0EE /* fa-v4compatibility.ttf */ = {isa = PBXFileReference; name = "fa-v4compatibility.ttf"; path = "../assets/fonts/fontawesome/fa-v4compatibility.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		97EC307668B9457585040DDF /* samsungsharpsans-bold.ttf */ = {isa = PBXFileReference; name = "samsungsharpsans-bold.ttf"; path = "../assets/fonts/samsungsharpsans/samsungsharpsans-bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0DD1D80A2DB7459D8B703DEA /* samsungsharpsans-medium.ttf */ = {isa = PBXFileReference; name = "samsungsharpsans-medium.ttf"; path = "../assets/fonts/samsungsharpsans/samsungsharpsans-medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C0219DC5C05F4724A7FF3C25 /* samsungsharpsans.ttf */ = {isa = PBXFileReference; name = "samsungsharpsans.ttf"; path = "../assets/fonts/samsungsharpsans/samsungsharpsans.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F6847BD32CA24D93A11D2476 /* babilonia-icon.eot */ = {isa = PBXFileReference; name = "babilonia-icon.eot"; path = "../assets/fonts/babilonia/babilonia-icon.eot"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EE78F444A9D44F419BB4FF51 /* babilonia-icon.svg */ = {isa = PBXFileReference; name = "babilonia-icon.svg"; path = "../assets/fonts/babilonia/babilonia-icon.svg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F882E35FF2154192BB7833F1 /* babilonia-icon.woff */ = {isa = PBXFileReference; name = "babilonia-icon.woff"; path = "../assets/fonts/babilonia/babilonia-icon.woff"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C979EA4F23F84E43B73AB181 /* LICENSE.txt */ = {isa = PBXFileReference; name = "LICENSE.txt"; path = "../assets/fonts/fontawesome/LICENSE.txt"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7EEC23F2E83945ED9966ED7B /* fa-brands-400.woff2 */ = {isa = PBXFileReference; name = "fa-brands-400.woff2"; path = "../assets/fonts/fontawesome/fa-brands-400.woff2"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AEC6471564BD4C74A8483868 /* fa-regular-400.woff2 */ = {isa = PBXFileReference; name = "fa-regular-400.woff2"; path = "../assets/fonts/fontawesome/fa-regular-400.woff2"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		63F117E59777415D9FA1A81C /* fa-solid-900.woff2 */ = {isa = PBXFileReference; name = "fa-solid-900.woff2"; path = "../assets/fonts/fontawesome/fa-solid-900.woff2"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		64A882885CC2497D97DD09E6 /* fa-v4compatibility.woff2 */ = {isa = PBXFileReference; name = "fa-v4compatibility.woff2"; path = "../assets/fonts/fontawesome/fa-v4compatibility.woff2"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +187,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				BC421864136A4430AC9DEB58 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -150,6 +213,45 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		BC421864136A4430AC9DEB58 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				6834AC68A79A44FE8540DD35 /* AvenirLTStd-Black.otf */,
+				3A7390BFB6FF49BC84A88CC6 /* AvenirLTStd-BlackOblique.otf */,
+				D4BFE9A3BF6F4E36884015F0 /* AvenirLTStd-Book.otf */,
+				A77146E5A1794B428AB30D5D /* AvenirLTStd-BookOblique.otf */,
+				2D35A08FC51948F5B8ECE320 /* AvenirLTStd-Heavy.otf */,
+				E0AD273AEBD54EECBB3709C6 /* AvenirLTStd-HeavyOblique.otf */,
+				B6C41B920F38408487450D6E /* AvenirLTStd-Light.otf */,
+				1116A2C1B4F6498C8F332385 /* AvenirLTStd-LightOblique.otf */,
+				C472EAF68A794AC2836B018E /* AvenirLTStd-Medium.otf */,
+				330D3D088C844126806290EB /* AvenirLTStd-MediumOblique.otf */,
+				645852B375F042B7B4FD4447 /* AvenirLTStd-Oblique.otf */,
+				E424B4AF59C948C496D27A1C /* AvenirLTStd-Roman.otf */,
+				2BC1C2246AF949E780905678 /* samsungsharpsans-bold.otf */,
+				7E72BC71565B415BA91A9D33 /* samsungsharpsans-medium.otf */,
+				8969EA7BAACA4B218E200CB6 /* samsungsharpsans.otf */,
+				D8F0AC9D9C0744E3A292A747 /* babilonia-icon.ttf */,
+				70CAD021D8314AC080B19000 /* fa-brands-400.ttf */,
+				39DD3C5F36DF48B8B5234078 /* fa-regular-400.ttf */,
+				4C244494601A472F8AC1E488 /* fa-solid-900.ttf */,
+				8B04C35FACBB42278BCCA0EE /* fa-v4compatibility.ttf */,
+				97EC307668B9457585040DDF /* samsungsharpsans-bold.ttf */,
+				0DD1D80A2DB7459D8B703DEA /* samsungsharpsans-medium.ttf */,
+				C0219DC5C05F4724A7FF3C25 /* samsungsharpsans.ttf */,
+				F6847BD32CA24D93A11D2476 /* babilonia-icon.eot */,
+				EE78F444A9D44F419BB4FF51 /* babilonia-icon.svg */,
+				F882E35FF2154192BB7833F1 /* babilonia-icon.woff */,
+				C979EA4F23F84E43B73AB181 /* LICENSE.txt */,
+				7EEC23F2E83945ED9966ED7B /* fa-brands-400.woff2 */,
+				AEC6471564BD4C74A8483868 /* fa-regular-400.woff2 */,
+				63F117E59777415D9FA1A81C /* fa-solid-900.woff2 */,
+				64A882885CC2497D97DD09E6 /* fa-v4compatibility.woff2 */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -247,6 +349,37 @@
 				6132EF182BDFF13200BBE14D /* PrivacyInfo.xcprivacy in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				A52A4D9055464AA6BF5D1BA4 /* AvenirLTStd-Black.otf in Resources */,
+				E739968816204968BDA2A7B9 /* AvenirLTStd-BlackOblique.otf in Resources */,
+				CC8FB9E4892648F2B9F6CA57 /* AvenirLTStd-Book.otf in Resources */,
+				BE4363F3D56C439EB197C587 /* AvenirLTStd-BookOblique.otf in Resources */,
+				5F2AD031A6844AA5A5C37512 /* AvenirLTStd-Heavy.otf in Resources */,
+				4668CE7044774CEA98FAA440 /* AvenirLTStd-HeavyOblique.otf in Resources */,
+				38D6F8A380844682B4DCCD16 /* AvenirLTStd-Light.otf in Resources */,
+				D9CE52AFDA8F4058AA05C3AB /* AvenirLTStd-LightOblique.otf in Resources */,
+				37021C88AD8743928055D21C /* AvenirLTStd-Medium.otf in Resources */,
+				7D78F0E1F6854B5A98A2A6CB /* AvenirLTStd-MediumOblique.otf in Resources */,
+				D7D90F47DC3A4CFAB3429D88 /* AvenirLTStd-Oblique.otf in Resources */,
+				DAE3160B77F142ADB7E1A7E8 /* AvenirLTStd-Roman.otf in Resources */,
+				A0FA07CF630642B6AA305CD1 /* samsungsharpsans-bold.otf in Resources */,
+				1714BD4FF0B14E5BAAA45318 /* samsungsharpsans-medium.otf in Resources */,
+				ED259F3541904C12B6817E27 /* samsungsharpsans.otf in Resources */,
+				52A601D0643249A5B9E879EC /* babilonia-icon.ttf in Resources */,
+				040CE77BED9B42049BDEEA43 /* fa-brands-400.ttf in Resources */,
+				BA628537A1594D7AAE348201 /* fa-regular-400.ttf in Resources */,
+				447F4BCD906F405BBA2AEEB3 /* fa-solid-900.ttf in Resources */,
+				00490121C93E412F8A20AB22 /* fa-v4compatibility.ttf in Resources */,
+				7E8D9DA12CC647799C217B78 /* samsungsharpsans-bold.ttf in Resources */,
+				8E7DA2AA09C54CF0A6170D86 /* samsungsharpsans-medium.ttf in Resources */,
+				E27E9ED09A0E40AE839AB29D /* samsungsharpsans.ttf in Resources */,
+				E68776B1A4A84753B818E8F7 /* babilonia-icon.eot in Resources */,
+				3E08B74CEF5C489284C2EC40 /* babilonia-icon.svg in Resources */,
+				F3A429AA15D743B1A861A2F3 /* babilonia-icon.woff in Resources */,
+				FDC1508C9AB4403E8D83F4E6 /* LICENSE.txt in Resources */,
+				3AB013F3793046D78E6864C8 /* fa-brands-400.woff2 in Resources */,
+				33F9625EECC945BB99801986 /* fa-regular-400.woff2 in Resources */,
+				26882B2731364F73BC871D59 /* fa-solid-900.woff2 in Resources */,
+				ECCAC694627442038A0F1835 /* fa-v4compatibility.woff2 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

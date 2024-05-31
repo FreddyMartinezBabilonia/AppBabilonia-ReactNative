@@ -1,0 +1,129 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/avenir/AvenirLTStd-Black.otf",
+      "sha1": "eb534ac4079db239cdd489df7a1aa2b874b5b599"
+    },
+    {
+      "path": "assets/fonts/avenir/AvenirLTStd-BlackOblique.otf",
+      "sha1": "b4288785b0908028f4c36f2433c59a8af1e66daf"
+    },
+    {
+      "path": "assets/fonts/avenir/AvenirLTStd-Book.otf",
+      "sha1": "db6bfde1c5f1f6d8129df5dce9484d88d3646f0d"
+    },
+    {
+      "path": "assets/fonts/avenir/AvenirLTStd-BookOblique.otf",
+      "sha1": "15fafdedef67775d87f413ee91c56685b5fed848"
+    },
+    {
+      "path": "assets/fonts/avenir/AvenirLTStd-Heavy.otf",
+      "sha1": "bf135f69c60771d3e70ac6fe0d608994ec43b1a2"
+    },
+    {
+      "path": "assets/fonts/avenir/AvenirLTStd-HeavyOblique.otf",
+      "sha1": "22eb5ad07886fe2693e4380667613ce670894b71"
+    },
+    {
+      "path": "assets/fonts/avenir/AvenirLTStd-Light.otf",
+      "sha1": "c0a4874272c963adf11c582d49469b6b00a578bb"
+    },
+    {
+      "path": "assets/fonts/avenir/AvenirLTStd-LightOblique.otf",
+      "sha1": "a8615ed5be5235e514efee080bf04456ed207269"
+    },
+    {
+      "path": "assets/fonts/avenir/AvenirLTStd-Medium.otf",
+      "sha1": "4bb358bdce457d097bb6c36b10c0532f850ce942"
+    },
+    {
+      "path": "assets/fonts/avenir/AvenirLTStd-MediumOblique.otf",
+      "sha1": "31864ce9052e8679c45cb12c9ccfad66f42bedbe"
+    },
+    {
+      "path": "assets/fonts/avenir/AvenirLTStd-Oblique.otf",
+      "sha1": "f05bcb9f3cbc822ea9226420adcc37198ae9db7b"
+    },
+    {
+      "path": "assets/fonts/avenir/AvenirLTStd-Roman.otf",
+      "sha1": "a614776d8ee6be9ed01ccc136ac5daed16ba604b"
+    },
+    {
+      "path": "assets/fonts/babilonia/babilonia-icon.eot",
+      "sha1": "413cd650a7c580f3c5b2c5a9468fc9231ca255ff"
+    },
+    {
+      "path": "assets/fonts/babilonia/babilonia-icon.svg",
+      "sha1": "18992c9b785a86587d3ee31355b811f696da4d5b"
+    },
+    {
+      "path": "assets/fonts/babilonia/babilonia-icon.ttf",
+      "sha1": "1492d622b7bd490eed565e004568bfde4670a605"
+    },
+    {
+      "path": "assets/fonts/babilonia/babilonia-icon.woff",
+      "sha1": "53d3c9045f2c71f016473d3fcd213875d0cf34e1"
+    },
+    {
+      "path": "assets/fonts/fontawesome/LICENSE.txt",
+      "sha1": "80fb80e63f6d77304c296cefd98e3b5b6ad6fdc9"
+    },
+    {
+      "path": "assets/fonts/fontawesome/fa-brands-400.ttf",
+      "sha1": "42350ed503d66ae23a9c68d38966f25bc3007319"
+    },
+    {
+      "path": "assets/fonts/fontawesome/fa-brands-400.woff2",
+      "sha1": "380bea4e9eb484d835d89cc608f2af7c3179e8a4"
+    },
+    {
+      "path": "assets/fonts/fontawesome/fa-regular-400.ttf",
+      "sha1": "9262ea1d0711b658bb75d5cbe9345e080c7dea90"
+    },
+    {
+      "path": "assets/fonts/fontawesome/fa-regular-400.woff2",
+      "sha1": "56be4c28de7c67747b0fe3dd606be8b319f6d4f4"
+    },
+    {
+      "path": "assets/fonts/fontawesome/fa-solid-900.ttf",
+      "sha1": "d2caaf5ce75d0da13ace325e24f7aa7079ef1891"
+    },
+    {
+      "path": "assets/fonts/fontawesome/fa-solid-900.woff2",
+      "sha1": "a7fca574d24e9ffa5ee0e0589ffe17277ae4ec27"
+    },
+    {
+      "path": "assets/fonts/fontawesome/fa-v4compatibility.ttf",
+      "sha1": "b12c2b515fb62c370de1af4ca99635b00aabfe58"
+    },
+    {
+      "path": "assets/fonts/fontawesome/fa-v4compatibility.woff2",
+      "sha1": "9e1f957bf329bd280aba89e578420301b312403d"
+    },
+    {
+      "path": "assets/fonts/samsungsharpsans/samsungsharpsans-bold.otf",
+      "sha1": "8f52db1652c37822a193a3a74766e61fa1a47081"
+    },
+    {
+      "path": "assets/fonts/samsungsharpsans/samsungsharpsans-bold.ttf",
+      "sha1": "e75e1747e799e1aead18304013394e1f15c6f2b9"
+    },
+    {
+      "path": "assets/fonts/samsungsharpsans/samsungsharpsans-medium.otf",
+      "sha1": "7962cd1de62cbe0ca583d087ced8573ae1c5c9a6"
+    },
+    {
+      "path": "assets/fonts/samsungsharpsans/samsungsharpsans-medium.ttf",
+      "sha1": "7ca9ab391a551b37da2c40836502ea8ee3f540b8"
+    },
+    {
+      "path": "assets/fonts/samsungsharpsans/samsungsharpsans.otf",
+      "sha1": "1c2e70c80402d608ee0e14c44697a793c0c89681"
+    },
+    {
+      "path": "assets/fonts/samsungsharpsans/samsungsharpsans.ttf",
+      "sha1": "9da22ece13c78ffd94cc24aaac7906a52cefad6c"
+    }
+  ]
+}

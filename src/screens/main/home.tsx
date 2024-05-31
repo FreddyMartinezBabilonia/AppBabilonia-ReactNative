@@ -1,7 +1,7 @@
 import React from 'react'
 import WebView from 'react-native-webview';
 import { useHome } from '../../hooks';
-import { LoaderChangePage } from '../../components';
+import { BottomSheetCustom, LoaderChangePage } from '../../components';
 
 export const Home = () => {
 
@@ -42,6 +42,7 @@ export const Home = () => {
         onMessage={onMessage}
         
       />      
+      <BottomSheetCustom />
     </>
   );
 }

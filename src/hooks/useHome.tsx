@@ -6,7 +6,7 @@ import SplashScreen from 'react-native-splash-screen';
 import { AppState, BackHandler, Linking, Platform } from 'react-native';
 import { WebViewNavigation } from 'react-native-webview';
 import { usePermissions, useDownload } from './index';
-import { useLoaderStore } from '../store';
+import { useListingDetailStore, useLoaderStore } from '../store';
 import { openSettings } from 'react-native-permissions';
 
 
@@ -32,6 +32,8 @@ export const useHome = () => {
     const loader = useLoaderStore(state => state.loader);
     const setLoader = useLoaderStore(state => state.setLoader);
 
+    const setId = useListingDetailStore(state => state.setId);
+    
     const [appState, setAppState] = useState(AppState.currentState);
     const { requeststoragePermission, requestCameraPermission, requestLocationPermission } = usePermissions();
     const { listings, interestedHome, interestedDetailListings, interestedDetailProject, collections } = useDownload()
@@ -138,6 +140,7 @@ export const useHome = () => {
 
     const onMessage = async (event: any) => {
       const data:MessageResponse = JSON.parse(event.nativeEvent.data);
+      const id = data.id ?? '';
       const type = data.type ?? '';
       const bearer = data.bearer ?? '';
       const url = data.url ?? '';
@@ -154,6 +157,8 @@ export const useHome = () => {
         interestedDetailProject({url, bearer});
       }else if(type == 'collections'){
         collections({url, bearer});
+      }else if(type == 'open-bottom-sheet' && id!=""){
+        setId(id)
       }
   }
     return {

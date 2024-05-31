@@ -4,9 +4,10 @@ export interface ModalNativeProps {
     buttons: { text: string; onPress: () => void }[];
 }
 export interface MessageResponse {
+    id?:     number;
     bearer?: string;
     url?:    string;
-    type?:   'listings' | 'interested.detail.listings' | 'interested.detail.project' | 'interested.home' | 'collections';
+    type?:   'listings' | 'interested.detail.listings' | 'interested.detail.project' | 'interested.home' | 'collections' | 'open-bottom-sheet';
 }
 
 export interface DownloadParams {

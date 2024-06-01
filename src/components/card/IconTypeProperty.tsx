@@ -2,10 +2,10 @@ import React from 'react'
 import { StyleSheet, Text, View, StyleProp, ViewStyle,} from 'react-native';
 import CustomIcon from '../CustomIcon'
 
-export interface props {
+interface Props {
     style?: StyleProp<ViewStyle>;
 }
-export const IconTypeProperty = ({ style }: props) => {
+export const IconTypeProperty = ({ style }: Props) => {
   return (
     <View style={{...IconTypePropertyStyles.container, ...style as any}}>
         <CustomIcon name='home-2' size={15} color='white' />

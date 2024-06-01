@@ -1,6 +1,7 @@
 import React from 'react'
 import { ColorValue, GestureResponderEvent, Text, StyleProp, ViewStyle, TextStyle } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import CustomIcon from './CustomIcon';
 
 type Style = StyleProp<ViewStyle>;
 type StyleText = StyleProp<TextStyle>;
@@ -12,9 +13,12 @@ interface Props {
     style?: Style;
     styleText?: StyleText;
     content: string | JSX.Element;
+    iconName?: string;
+    iconColor?: string;
+    iconSize?: number;
 }
 
-export const Button = ({ onPress, content: nombre, style, styleText }: Props) => {
+export const Button = ({ onPress, content: nombre, style, styleText, iconName, iconColor, iconSize }: Props) => {
   return (
     <>
         <TouchableOpacity
@@ -22,6 +26,7 @@ export const Button = ({ onPress, content: nombre, style, styleText }: Props) =>
             style={style}
             onPress={ onPress }
             >
+                { (iconName && iconColor && iconSize) && <CustomIcon name={iconName} size={iconSize} color={iconColor}/>}
                 <Text style={styleText}>{ nombre }</Text>
             </TouchableOpacity>
     </>

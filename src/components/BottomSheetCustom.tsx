@@ -1,15 +1,19 @@
 import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet'
-import React, { useCallback, useEffect, useMemo, useRef } from 'react'
-import { StyleSheet, View, Image, Dimensions, Text } from 'react-native'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { StyleSheet, View, Image, Dimensions, Text, LayoutChangeEvent } from 'react-native'
 import { useListingDetailStore } from '../store'
 import { Button } from './Button'
+
+import PaginationDot from 'react-native-animated-pagination-dot'
+import Carousel from 'react-native-reanimated-carousel';
 
 export const BottomSheetCustom = () => {
 
     const dimensions = Dimensions.get('window');
-    const imageWidth = dimensions.width;
-
+    const imageWidth = dimensions.width - 16;
+    const imageHeight = 180;
     const idListing = useListingDetailStore(state => state.id);
+    const [currentPage, setCurrentPage] = useState(1);
 
     // ref
     const bottomSheetRef = useRef<BottomSheet>(null);
@@ -27,23 +31,54 @@ export const BottomSheetCustom = () => {
         bottomSheetRef.current?.snapToPosition("50%");
       }
     }, [idListing])
-    
 
   return (
     <BottomSheet
+        style={styles.bottomSheet}
         ref={bottomSheetRef}
-        snapPoints={["50%", "80%"]}
-        index={-1}
+        snapPoints={[390, 390]}
+        index={1}
         onChange={handleSheetChanges}
         enablePanDownToClose={true}
+        contentHeight={310}
       >
         <BottomSheetView style={styles.contentContainer}>
             <View style={styles.contentBody}>
-                <Image 
-                    resizeMode="cover"
-                    style={{width: imageWidth-32, height: 120}}
-                    source={{uri: 'https://picsum.photos/410/300'}}
+                
+                <Carousel
+                    style={{
+                        minHeight : imageHeight
+                    }}
+                    loop
+                    width={imageWidth}
+                    height={imageHeight}
+                    autoPlay={false}
+                    data={[...new Array(6).keys()]}
+                    scrollAnimationDuration={1000}
+                    onSnapToItem={(index) => setCurrentPage(index)}
+                    pagingEnabled={true}
+                    renderItem={({ index }) => (
+                        <View style={{...styles.contentGallery }}>
+                            <Image
+                                style={styles.galleryImage}
+                                source={{
+                                    uri: `https://picsum.photos/${imageWidth}/${imageHeight}?random=${index}`
+                                }}
+                                width={imageWidth}
+                                height={imageHeight}
+                            />
+                        </View>
+                    )}
                 />
+                <View style={styles.contentPaginationDots}>
+                    <PaginationDot
+                        inactiveDotColor={'white'}
+                        activeDotColor={'white'}
+                        curPage={currentPage}
+                        maxPage={6}
+                    />
+                </View>
+                
                 <View style={styles.contentTop}>
                     <View style={styles.contentPrice}>
                         <Text style={styles.h2}>$850,000</Text>
@@ -76,24 +111,49 @@ const textPrimaryStyle = StyleSheet.create({
         color: '#000',
         fontSize: 16,
         textAlign: 'center',
+        fontFamily: "AvenirLTStd-Roman",
     }
 });
 const styles = StyleSheet.create({
+    bottomSheet:{
+        //shadow
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 9,
+        },
+        shadowOpacity: 0.50,
+        shadowRadius: 12.35,
+
+        elevation: 19,
+    },
+    contentPaginationDots:{
+        flex: 1,
+        display:"flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width:"100%",
+        marginTop:-25,
+        marginBottom:15
+    },
     contentContainer: {
       flex: 1,
       alignItems: 'center',
-      paddingLeft: 16,
-      paddingRight: 16,
+      paddingLeft: 8,
+      paddingRight: 8,
       backgroundColor: '#fff',
+    },
+    contentGallery:{
+        justifyContent: 'center',        
     },
     contentBody:{
         width: '100%',
-        height: '100%',
-        flex: 1,
-        alignItems: 'center',
+        height:'auto',
+        display:'flex',
+        alignItems: 'flex-start',
         justifyContent: 'flex-start',
         backgroundColor: '#fff',
-        borderRadius: 8,
+        borderRadius: 10,
     },
     contentTop:{
         display:'flex',
@@ -163,22 +223,29 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-end',
     },
     text: {
-        ...textPrimaryStyle.text
+        ...textPrimaryStyle.text,
+        fontFamily: "samsungsharpsans-bold",
     },
     h1:{
         ...textPrimaryStyle.text,
+        fontFamily: "samsungsharpsans-bold",
         fontWeight: 'bold',
         fontSize: 30,
     },
     h2:{
         ...textPrimaryStyle.text,
+        fontFamily: "samsungsharpsans-bold",
         fontWeight: 'bold',
         fontSize: 20,
     },
     h3:{
         ...textPrimaryStyle.text,
+        fontFamily: "samsungsharpsans-bold",
         fontWeight: 'bold',
         fontSize: 15,
     },
-    
+    galleryImage:{
+        borderRadius: 10,
+        overflow: "hidden"
+    }
   });

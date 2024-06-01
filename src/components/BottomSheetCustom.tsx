@@ -1,11 +1,12 @@
 import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { StyleSheet, View, Image, Dimensions, Text, LayoutChangeEvent } from 'react-native'
+import { StyleSheet, View, Image, Dimensions, Text } from 'react-native'
 import { useListingDetailStore } from '../store'
 import { Button } from './Button'
 
 import PaginationDot from 'react-native-animated-pagination-dot'
 import Carousel from 'react-native-reanimated-carousel';
+import { IconCamera, IconFavorite, IconTypeProperty } from './card'
 
 export const BottomSheetCustom = () => {
 
@@ -36,58 +37,62 @@ export const BottomSheetCustom = () => {
     <BottomSheet
         style={styles.bottomSheet}
         ref={bottomSheetRef}
-        snapPoints={[390, 390]}
-        index={1}
+        snapPoints={[370, 380]}
+        index={-1}
         onChange={handleSheetChanges}
         enablePanDownToClose={true}
         contentHeight={310}
-      >
+      >        
         <BottomSheetView style={styles.contentContainer}>
-            <View style={styles.contentBody}>
-                
-                <Carousel
-                    style={{
-                        minHeight : imageHeight
-                    }}
-                    loop
-                    width={imageWidth}
-                    height={imageHeight}
-                    autoPlay={false}
-                    data={[...new Array(6).keys()]}
-                    scrollAnimationDuration={1000}
-                    onSnapToItem={(index) => setCurrentPage(index)}
-                    pagingEnabled={true}
-                    renderItem={({ index }) => (
-                        <View style={{...styles.contentGallery }}>
-                            <Image
-                                style={styles.galleryImage}
-                                source={{
-                                    uri: `https://picsum.photos/${imageWidth}/${imageHeight}?random=${index}`
-                                }}
-                                width={imageWidth}
-                                height={imageHeight}
-                            />
-                        </View>
-                    )}
-                />
-                <View style={styles.contentPaginationDots}>
-                    <PaginationDot
-                        inactiveDotColor={'white'}
-                        activeDotColor={'white'}
-                        curPage={currentPage}
-                        maxPage={6}
+
+
+            <View style={{...styles.contentBody, height: imageHeight,}}>
+                <IconTypeProperty style={styles.iconTypeProperty} />
+                <IconFavorite style={styles.iconFavorite} />
+                <IconCamera style={styles.iconCamera} />
+                <View style={styles.contentCarrousel}>
+                    <Carousel
+                        loop
+                        width={imageWidth}
+                        height={imageHeight}
+                        autoPlay={false}
+                        data={[...new Array(6).keys()]}
+                        scrollAnimationDuration={1000}
+                        onSnapToItem={(index) => setCurrentPage(index)}
+                        pagingEnabled={true}
+                        renderItem={({ index }) => (
+                            <View style={{...styles.contentGallery }}>
+                                <Image
+                                    style={styles.galleryImage}
+                                    source={{
+                                        uri: `https://picsum.photos/${imageWidth}/${imageHeight}?random=${index}`
+                                    }}
+                                    width={imageWidth}
+                                    height={imageHeight}
+                                />
+                            </View>
+                        )}
                     />
+                    
+                    <View style={styles.contentPaginationDots}>
+                        <PaginationDot
+                            inactiveDotColor={'white'}
+                            activeDotColor={'white'}
+                            curPage={currentPage}
+                            maxPage={6}
+                        />
+                    </View>
                 </View>
-                
                 <View style={styles.contentTop}>
                     <View style={styles.contentPrice}>
-                        <Text style={styles.h2}>$850,000</Text>
-                        <Text style={styles.h3}>$1416/m2</Text>
+                        <Text style={{...styles.h2,fontSize:23}}>$850,000</Text>
+                        <Text style={styles.textMetter}>$1416/m2</Text>
 
                     </View>
                     <Text style={styles.area}>600 m2</Text>
                 </View>
                 <Text style={styles.address}>Miro Quesada Cdra 1 Piso 11, San Isidro, Lima</Text>
+                
                 <View style={styles.contentButtons}>
                     <Button
                         content="Ver inmueble"
@@ -98,6 +103,9 @@ export const BottomSheetCustom = () => {
                         content="Navegar"
                         style={styles.btnNavigate}
                         styleText={{...styles.btnText, color: '#28a7b5'}}
+                        iconName='location'
+                        iconColor='#28a7b5'
+                        iconSize={20}
                     />
                 </View>
             </View>
@@ -132,9 +140,10 @@ const styles = StyleSheet.create({
         display:"flex",
         justifyContent: "center",
         alignItems: "center",
-        width:"100%",
-        marginTop:-25,
-        marginBottom:15
+        position: "absolute",
+        bottom: 10,
+        right: 0,
+        left: 0,
     },
     contentContainer: {
       flex: 1,
@@ -143,8 +152,12 @@ const styles = StyleSheet.create({
       paddingRight: 8,
       backgroundColor: '#fff',
     },
+    contentCarrousel:{
+        position:'relative',
+    },
     contentGallery:{
-        justifyContent: 'center',        
+        justifyContent: 'center',  
+        width: '100%',      
     },
     contentBody:{
         width: '100%',
@@ -154,6 +167,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         backgroundColor: '#fff',
         borderRadius: 10,
+        position:'relative'
     },
     contentTop:{
         display:'flex',
@@ -165,7 +179,7 @@ const styles = StyleSheet.create({
         display:'flex',
         flexDirection:'row',
         justifyContent:'flex-start',
-        alignItems:'center',
+        alignItems:'flex-end',
         marginTop: 10,
         gap: 10,
         flex: 1,
@@ -202,6 +216,8 @@ const styles = StyleSheet.create({
         minHeight: 50,
         minWidth:"48%",
         display: "flex",
+        flexDirection:'row',
+        gap: 5,
         justifyContent: 'center',
         alignItems: 'center',        
     },
@@ -244,8 +260,33 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 15,
     },
+    textMetter:{
+        ...textPrimaryStyle.text,
+        fontFamily: "AvenirLTStd-Roman",
+        fontSize:13,
+        color:'#92979C',
+        marginBottom:4,
+    },
     galleryImage:{
         borderRadius: 10,
         overflow: "hidden"
-    }
+    },
+    iconFavorite:{
+        position: 'absolute',
+        top: 10,
+        right: 10,
+        zIndex: 3,
+    },
+    iconTypeProperty:{
+        position: 'absolute',
+        top: 10,
+        left: 10,
+        zIndex: 2,
+    },
+    iconCamera:{
+        position: 'absolute',
+        bottom: 10,
+        right: 10,
+        zIndex: 3,
+    },
   });

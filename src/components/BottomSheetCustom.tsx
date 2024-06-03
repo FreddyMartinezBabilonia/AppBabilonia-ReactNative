@@ -7,6 +7,7 @@ import { Button } from './Button'
 import PaginationDot from 'react-native-animated-pagination-dot'
 import Carousel from 'react-native-reanimated-carousel';
 import { IconCamera, IconFavorite, IconTypeProperty } from './card'
+import { useCard } from '../hooks'
 
 export const BottomSheetCustom = () => {
 
@@ -15,6 +16,8 @@ export const BottomSheetCustom = () => {
     const imageHeight = 180;
     const idListing = useListingDetailStore(state => state.id);
     const [currentPage, setCurrentPage] = useState(1);
+
+    const { getListingDetail } = useCard();
 
     // ref
     const bottomSheetRef = useRef<BottomSheet>(null);
@@ -26,6 +29,9 @@ export const BottomSheetCustom = () => {
 
     useEffect(() => {
         console.log(idListing);
+        getListingDetail().then((res) => {
+            console.log(res);
+        });
       if(idListing == null){
         bottomSheetRef.current?.close();
       }else{
@@ -38,7 +44,7 @@ export const BottomSheetCustom = () => {
         style={styles.bottomSheet}
         ref={bottomSheetRef}
         snapPoints={[370, 380]}
-        index={-1}
+        index={1}
         onChange={handleSheetChanges}
         enablePanDownToClose={true}
         contentHeight={310}

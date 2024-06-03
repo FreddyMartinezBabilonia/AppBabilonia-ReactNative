@@ -1,3 +1,4 @@
+export * from './listingDetail'
 export interface ModalNativeProps {
     title: string;
     message: string;

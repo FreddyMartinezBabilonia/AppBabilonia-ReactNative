@@ -1,15 +1,17 @@
 import React from 'react'
 import WebView from 'react-native-webview';
 import { useHome } from '../../hooks';
-import { BottomSheetCustom, LoaderChangePage } from '../../components';
+import { BottomSheetCustom, LoaderChangePage, Map } from '../../components';
 
 export const Home = () => {
 
-  const {uri, runFirst, webViewRef, loader, onNavigationStateChange, setLoader, handleWebViewLoad, onMessage } = useHome();
+  const {uri, runFirst, webViewRef, loader, showMap, onNavigationStateChange, setLoader, handleWebViewLoad, onMessage } = useHome();
+  //return()
   
   return (
     <>
       { loader && <LoaderChangePage /> }
+      { (showMap.show && showMap.lat && showMap.lng) ?  <Map lat={showMap.lat} lng={showMap.lng} /> : '' }
       <WebView
         containerStyle={{  display: loader ? 'none' : 'flex' }}
         cacheEnabled={true}
@@ -41,8 +43,7 @@ export const Home = () => {
         mixedContentMode="always"
         onMessage={onMessage}
         
-      />      
-      <BottomSheetCustom />
+      />
     </>
   );
 }

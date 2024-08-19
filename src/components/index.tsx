@@ -7,3 +7,5 @@ export * from './CustomIcon';
 export * from './card/IconTypeProperty';
 export * from './card/IconFavorite';
 export * from './card/IconCamera';
+
+export * from './Map';

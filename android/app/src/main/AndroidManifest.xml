@@ -13,7 +13,9 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
- 
+
+    <uses-permission android:name="android.permission.HIGH_SAMPLING_RATE_SENSORS"/>
+
     <meta-data
       android:name="com.facebook.react.NativeModule.ReactFontManager"
       android:value="assets/fonts/samsungsharpsans-bold.ttf,assets/fonts/AvenirLTStd-Roman.otf"
@@ -27,6 +29,11 @@
       android:allowBackup="false"
       android:theme="@style/AppTheme"
       android:usesCleartextTraffic="true">
+
+      <meta-data
+        android:name="com.google.android.geo.API_KEY"
+        android:value="AIzaSyBRX9jdbJ7pqX8hgbrS3JwQ40_s9ky4NWY"/>
+
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"

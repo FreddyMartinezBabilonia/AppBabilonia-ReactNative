@@ -14,6 +14,7 @@ import com.facebook.soloader.SoLoader
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.lugg.RNCConfig.RNCConfigPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
+import com.sensors.RNSensorsPackage;
 
 class MainApplication : Application(), ReactApplication {
 

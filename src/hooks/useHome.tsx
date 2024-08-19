@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ModalNative } from '../components';
 import { getEnviroment, getNewVersion, openPlayStore } from '../helpers';
-import { MessageResponse, ModalNativeProps } from '../interfaces';
+import { MessageResponse, ModalNativeProps, positionType, showMapState } from '../interfaces';
 import SplashScreen from 'react-native-splash-screen';
 import { AppState, BackHandler, Linking, Platform } from 'react-native';
 import { WebViewNavigation } from 'react-native-webview';
@@ -28,6 +28,9 @@ export const useHome = () => {
     const [uri, setUri] = useState(`https://${domain}/`)
     const [update, setUpdate] = useState(false);
     const [canGoBack, setCanGoBack] = useState(false);
+    const [showMap, setShowMap] = useState<showMapState>({
+        show: false
+    })
     
     const loader = useLoaderStore(state => state.loader);
     const setLoader = useLoaderStore(state => state.setLoader);
@@ -144,6 +147,8 @@ export const useHome = () => {
       const type = data.type ?? '';
       const bearer = data.bearer ?? '';
       const url = data.url ?? '';
+      const lat: positionType = data.lat ?? undefined;
+      const lng: positionType = data.lng ?? undefined;
       
       await requeststoragePermission();  
 
@@ -159,6 +164,18 @@ export const useHome = () => {
         collections({url, bearer});
       }else if(type == 'open-bottom-sheet' && id!=""){
         setId(id)
+      }else if(type == 'show-map'){
+        setShowMap({
+          show: true,
+          lat,
+          lng
+        })
+      }else if(type == 'hidden-map'){
+        setShowMap({
+          show: false,
+          lat: undefined,
+          lng: undefined        
+        })
       }
   }
     return {
@@ -168,6 +185,7 @@ export const useHome = () => {
         canGoBack,
         update,
         loader,
+        showMap,
 
         setLoader,
         onNavigationStateChange,

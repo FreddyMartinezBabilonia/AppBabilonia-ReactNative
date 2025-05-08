@@ -8,7 +8,7 @@ import {
   SensorTypes
 } from "react-native-sensors";
 
-import CompassHeading from 'react-native-compass-heading';
+// import CompassHeading from 'react-native-compass-heading';
 
 import { usePermissions } from '../hooks';
 import { headingParam, options, region } from '../interfaces';
@@ -54,8 +54,8 @@ export const Map = ({lat, lng}:props) => {
     
     if(!marker2.latitude && !marker2.longitude) return 0;
     
-    const deltaY = marker2!.latitude - marker1.latitude;
-    const deltaX = marker2!.longitude - marker1.longitude;
+    const deltaY = (marker2.latitude ?? 0) - marker1.latitude;
+    const deltaX = (marker2.longitude ?? 0) - marker1.longitude;
     const angleInRadians = Math.atan2(deltaY, deltaX);
     const angleInDegrees = angleInRadians * (180 / Math.PI);
 
@@ -136,7 +136,7 @@ export const Map = ({lat, lng}:props) => {
     };
   }, [])
 
-  
+  /*
   useEffect(() => {
     const degree_update_rate = 1;
 
@@ -154,7 +154,7 @@ export const Map = ({lat, lng}:props) => {
     return () => {
       CompassHeading.stop();
     };
-  }, [])
+  }, []) */
   
 
   useEffect(() => {
